@@ -11,7 +11,9 @@ curl -s "https://wordfinder.yourdictionary.com/wordle/answers/" > t.html
 #The below command gets the part where there's all answers in one single line:
 grep -o "pastData.*revealAnswer" t.html > finally.html
 
-#The below command then  breaks the one long line we identified as having all answers, into neat parts, by breaking it at the comma into a new line:
+#The below command then  breaks the one long line we identified as having all answers, into neat parts
+#by breaking it at the comma into a new line
+#This can be skipped, as the next command does all the required processing
 cat finally.html  | sed 's/,/\n/g'
 
 #Refining further by replacing open brces and brackets with a new line and removing closing braces and brackets and double quotes
