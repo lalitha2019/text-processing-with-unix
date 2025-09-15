@@ -25,5 +25,8 @@ script used by awk command in the above unix code
 intermediate / output files
 - t.html - html file from the url
 - finally.html - intermediate output - the answers part of html file
-- cleanAnswers.txt - intermediate output - the answers part above, formatted into neat key, value pairs (and a few additional lines)
+- cleanAnswers.txt - intermediate output - the answers part above, formatted into neat key, value pairs (and a few additional lines which are easy to clean up, if needed)
+  This file can be used as input for data anlalysis using python or any other preferred language / tool
+  Details in this text file can be read as data structures like arrays or tables and used for analysis and visualization
 - wordleData.txt - data from the above key, value pairs (has a few additional lines that may or may not be helpful in further processing / analysis)
+  The above file is good enough for using as input for data analysis, but this was just an extension to my exercise in text processing
