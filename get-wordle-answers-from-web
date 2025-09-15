@@ -1,0 +1,24 @@
+#Get the html file
+curl -s "https://wordfinder.yourdictionary.com/wordle/answers/" > t.html
+
+#Parsing the html file would have been tedious
+#However, going over the contents of the html a few times by manual scanning with the eyes as well as using 'grep' to look for patterns,
+#led to an interesting observation that made the task very easy.
+
+#The html file had all wordle answers embedded in one single line
+#So, now the task was to break that single line into a format that would make parsing it easy
+
+#The below command gets the part where there's all answers in one single line:
+grep -o "pastData.*revealAnswer" t.html > finally.html
+
+#The below command then  breaks the one long line we identified as having all answers, into neat parts, by breaking it at the comma into a new line:
+cat finally.html  | sed 's/,/\n/g'
+
+#Refining further by replacing open brces and brackets with a new line and removing closing braces and brackets and double quotes
+cat finally1.html  | sed 's/[,\{\[]/\n/g'  | sed s/\}//g | sed s/\]//g | | sed 's/\"//g' > cleanAnswers.txt
+
+#Using awk, organize the values in a format that's easy to process
+#At this time I'm writing it to a file. The file can then be used for analysis using any of the various tools
+#like unix commands /utilities or python or any other tool for data analysis / visualization
+awk -F':' -f script2.txt cleanAnswers.txt > wordleData.txt
+
