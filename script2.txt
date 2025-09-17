@@ -1,0 +1,19 @@
+BEGIN {print "starting data processing....."}
+
+{
+key = $1
+value = $2
+
+	if (key=="date") {
+		print  value
+	}
+	else if (key=="index") {
+		print  value
+	}
+	else if (key=="answer") {
+		print  value
+	}
+	else {print}
+}
+
+END {print "end data processing"}
