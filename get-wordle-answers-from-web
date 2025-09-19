@@ -20,7 +20,7 @@ cat finally.html  | sed 's/,/\n/g'
 #This output file can be used as input for data anlalysis using python or any other preferred language / tool
 #Details in this text file can be read as data structures like arrays or tables and used for analysis and visualization
 #(it still has a few additional lines that may or may not be helpful in further processing / analysis)
-cat finally1.html  | sed 's/[,\{\[]/\n/g'  | sed s/\}//g | sed s/\]//g | | sed 's/\"//g' > cleanAnswers.txt
+cat finally1.html  | sed 's/[,\{\[]/\n/g'  | sed s/\}//g | sed s/\]//g | sed 's/\"//g' > cleanAnswers.txt
 
 #Using awk, extract the value parts only
 #the purpose of this is mostly an exercise to practice text processing
